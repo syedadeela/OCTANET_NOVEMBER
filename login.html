@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #3a5d8e;
+            font-family: Arial, sans-serif;
+            background-image: rgb(10, 68, 116)
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px rgba(9, 10, 9, 0.3);
+            margin: 70px auto;
+            padding: 50px;
+            max-width: 300px;
+        }
+
+        .container2 {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px rgba(9, 10, 9, 0.3);
+            margin: 70px auto;
+            padding: 10px;
+            max-width: 400px;
+        }
+
+        .container2 a {
+            text-decoration: none;
+            color: black;
+            text-transform: capitalize;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            border-radius: 5px;
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 25px;
+            border: none;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .psw {
+            float: right;
+            padding-top: 26px;
+        }
+
+        .psw a {
+            color: red;
+            text-transform: capitalize;
+            text-decoration: none;
+        }
+
+        .psw2 {
+            margin: 150px;
+        }
+    </style>
+
+    <script>
+        document
+            .getElementById("myButton")
+            .addEventListener("click", function () {
+                window.location.href = "/index4.html";
+            });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <label> <b>Username</b></label>
+        <input type="text" placeholder="Enter Username" required />
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" required />
+
+        <button id="myButton" type="submit">Login</button>
+        <label> <input type="checkbox" /> Remember me </label>
+
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+    <div class="container2">
+        <label class="psw2">
+            <a href="/Signup.html"><b>Sign up</b></a></label>
+    </div>
+</body>
+
+</html>
