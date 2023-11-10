@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Prioritization</title>
+    <link rel="stylesheet" href="home.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #task-container {
+            
+            width: 600px;
+            text-align: center;
+            background-color: whitesmoke;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .task {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .task span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .urgent-important {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .not-urgent-important {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .urgent-not-important {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        .not-urgent-not-important {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        body {
+            background-image: url("img1.jpg");
+            background-color: #cccccc;
+           }
+    </style>
+</head>
+<body>
+   
+       
+<div id="task-container">
+    <h1>Task Prioritization</h1>
+
+    <div class="task">
+        <label for="task-input">Task:</label>
+        <input type="text" id="task-input" placeholder="Enter your task">
+    </div>
+
+    <div class="task">
+        <label for="course">Course:</label>
+        <select id="course">
+            <option value="CCNA">CCNA</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Web Development">Web Development</option>
+            <option value="AWS Cloud">AWS Cloud</option>
+            <option value="Java">Java</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="Data Structures">Data Structures</option>
+        </select>
+    </div>
+
+    <div class="task">
+        <label for="urgency">Urgency:</label>
+        <select id="urgency">
+            <option value="urgent">Urgent</option>
+            <option value="not-urgent">Not Urgent</option>
+        </select>
+    </div>
+
+    <div class="task">
+        <label for="importance">Importance:</label>
+        <select id="importance">
+            <option value="important">Important</option>
+            <option value="not-important">Not Important</option>
+        </select>
+    </div>
+
+    <div class="task">
+        <label for="due-date">Due Date and Time:</label>
+        <input type="datetime-local" id="due-date">
+    </div>
+
+    <button onclick="prioritizeTask()">Prioritize Task</button>
+
+    <h2>Prioritized Tasks:</h2>
+    <ul id="prioritized-tasks"></ul>
+</div>
+
+<script>
+    function prioritizeTask() {
+        const taskInput = document.getElementById('task-input').value;
+        const course = document.getElementById('course').value;
+        const urgency = document.getElementById('urgency').value;
+        const importance = document.getElementById('importance').value;
+        const dueDate = document.getElementById('due-date').value;
+
+        const priority = urgency + '-' + importance;
+        const prioritizedTasks = document.getElementById('prioritized-tasks');
+
+        const taskItem = document.createElement('li');
+        taskItem.className = 'task';
+        taskItem.innerHTML = `
+            <span>${taskInput} for ${course} - Due: ${dueDate}</span>
+            <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+        `;
+
+        switch (priority) {
+            case 'urgent-important':
+                taskItem.classList.add('urgent-important');
+                break;
+            case 'not-urgent-important':
+                taskItem.classList.add('not-urgent-important');
+                break;
+            case 'urgent-not-important':
+                taskItem.classList.add('urgent-not-important');
+                break;
+            case 'not-urgent-not-important':
+                taskItem.classList.add('not-urgent-not-important');
+                break;
+        }
+
+        prioritizedTasks.appendChild(taskItem);
+    }
+    
+
+    function deleteTask(btn) {
+        const taskItem = btn.parentNode;
+        const prioritizedTasks = document.getElementById('prioritized-tasks');
+        prioritizedTasks.removeChild(taskItem);
+    }
+</script>
+
+</body>
+</html>
